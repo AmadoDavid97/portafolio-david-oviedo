@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Blog Técnico - Desarrollo, Tecnología y Emprendimiento | Amado David Oviedo</title>
+    <meta name="description" content="Artículos sobre desarrollo de software, tecnologías modernas y emprendimiento digital en Paraguay. Spring Boot, Flutter, transformación digital y más.">
+    <meta name="keywords" content="blog desarrollo, Spring Boot, Flutter, Paraguay, tecnología, emprendimiento, eVendeha">
+    <meta name="author" content="Amado David Oviedo Quintana">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog Técnico - Amado David Oviedo">
+    <meta property="og:description" content="Artículos sobre desarrollo, tecnología y emprendimiento">
+    <meta property="og:image" content="../assets/images/amado-oviedo.jpg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/blog/article.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="container">
+            <a href="../index.html" class="logo">ADOQ</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+                <li><a href="../index.html#habilidades">Habilidades</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Blog Técnico</h1>
+            <p>Artículos sobre desarrollo de software, tecnología y emprendimiento digital</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <main class="blog-main">
+        <div class="container">
+            <!-- Filters -->
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-th"></i> Todos
+                </button>
+                <button class="filter-btn" data-category="Backend">
+                    <i class="fas fa-server"></i> Backend
+                </button>
+                <button class="filter-btn" data-category="Mobile">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </button>
+                <button class="filter-btn" data-category="Negocio">
+                    <i class="fas fa-briefcase"></i> Negocio
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="blog-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar artículos...">
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="blog-articles-grid">
+                <!-- Article 1 -->
+                <article class="blog-article-card" data-category="Backend">
+                    <a href="optimizacion-spring-boot-produccion.html" class="article-link">
+                        <div class="article-image">
+                            <img src="../assets/images/blog/spring-boot-tips.jpg" alt="Spring Boot Tips" loading="lazy">
+                            <div class="article-category-badge">Backend</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta-small">
+                                <span><i class="fas fa-calendar-alt"></i> 15 Oct 2024</span>
+                                <span><i class="fas fa-clock"></i> 8 min</span>
+                            </div>
+                            <h3>Optimización de Spring Boot para Producción: Guía Completa</h3>
+                            <p>Técnicas avanzadas para mejorar el rendimiento de aplicaciones Spring Boot en entornos de producción, incluyendo configuración JVM y mejores prácticas.</p>
+                            <div class="article-tags-small">
+                                <span class="tag-small">Spring Boot</span>
+                                <span class="tag-small">Performance</span>
+                                <span class="tag-small">JVM</span>
+                            </div>
+                            <div class="read-more">
+                                Leer artículo <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-article-card" data-category="Mobile">
+                    <a href="flutter-riverpod-state-management.html" class="article-link">
+                        <div class="article-image">
+                            <img src="../assets/images/blog/flutter-riverpod.jpg" alt="Flutter Riverpod" loading="lazy">
+                            <div class="article-category-badge">Mobile</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta-small">
+                                <span><i class="fas fa-calendar-alt"></i> 8 Oct 2024</span>
+                                <span><i class="fas fa-clock"></i> 12 min</span>
+                            </div>
+                            <h3>Gestión de Estado en Flutter con Riverpod: Mi Experiencia en eVendeha Mobile</h3>
+                            <p>Cómo implementamos una arquitectura escalable de gestión de estado en nuestra aplicación móvil comercial usando Riverpod y las lecciones aprendidas.</p>
+                            <div class="article-tags-small">
+                                <span class="tag-small">Flutter</span>
+                                <span class="tag-small">Riverpod</span>
+                                <span class="tag-small">Mobile</span>
+                            </div>
+                            <div class="read-more">
+                                Leer artículo <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-article-card" data-category="Negocio">
+                    <a href="automatizacion-pymes-paraguay.html" class="article-link">
+                        <div class="article-image">
+                            <img src="../assets/images/blog/automatizacion-negocio.jpg" alt="Automatización" loading="lazy">
+                            <div class="article-category-badge">Negocio</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta-small">
+                                <span><i class="fas fa-calendar-alt"></i> 1 Oct 2024</span>
+                                <span><i class="fas fa-clock"></i> 6 min</span>
+                            </div>
+                            <h3>Transformación Digital para PYMEs: El Caso eVendeha en Paraguay</h3>
+                            <p>Análisis de cómo la automatización comercial puede transformar pequeñas y medianas empresas en Paraguay, basado en casos de éxito reales.</p>
+                            <div class="article-tags-small">
+                                <span class="tag-small">Digital</span>
+                                <span class="tag-small">PyME</span>
+                                <span class="tag-small">Paraguay</span>
+                            </div>
+                            <div class="read-more">
+                                Leer artículo <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+
+            <!-- No Results Message -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron artículos</h3>
+                <p>Intenta con otros términos de búsqueda o filtros</p>
+            </div>
+
+            <!-- Newsletter Section -->
+            <section class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div class="newsletter-text">
+                        <h2>Suscribite al Newsletter</h2>
+                        <p>Recibí artículos nuevos, tips de programación y noticias sobre eVendeha directamente en tu email</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input 
+                            type="email" 
+                            placeholder="tu@email.com" 
+                            required
+                            id="newsletterEmail"
+                        >
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirme <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <p class="newsletter-privacy">
+                        <i class="fas fa-lock"></i> No spam. Podés cancelar en cualquier momento.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="blog-cta-section">
+                <h2>¿Tenés un tema que te gustaría que cubra?</h2>
+                <p>Estoy siempre buscando nuevas ideas para artículos. Si hay algo específico sobre desarrollo, tecnología o emprendimiento digital que te gustaría aprender, hacémelo saber.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contacto" class="btn btn-primary">
+                        Sugerir tema <i class="fas fa-lightbulb"></i>
+                    </a>
+                    <a href="https://www.evendeha.com" class="btn btn-secondary" target="_blank">
+                        Conocer eVendeha <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Amado David Oviedo Quintana — Evendeha E.A.S</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">Desarrollado con <i class="fas fa-heart"
+                    style="color: #ef4444;"></i> en Paraguay</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const articleCards = document.querySelectorAll('.blog-article-card');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        let currentCategory = 'all';
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Get category
+                currentCategory = button.getAttribute('data-category');
+                
+                // Filter articles
+                filterArticles();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            filterArticles();
+        });
+
+        function filterArticles() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            articleCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tag-small'))
+                    .map(tag => tag.textContent.toLowerCase())
+                    .join(' ');
+
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                const matchesSearch = title.includes(searchTerm) || 
+                                    description.includes(searchTerm) || 
+                                    tags.includes(searchTerm);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0) {
+                noResults.style.display = 'flex';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            
+            // Aquí podrías integrar con un servicio de email marketing como Mailchimp
+            alert(`¡Gracias por suscribirte! Te enviaremos novedades a ${email}`);
+            newsletterForm.reset();
+        });
+    </script>
+</body>
+
+</html>

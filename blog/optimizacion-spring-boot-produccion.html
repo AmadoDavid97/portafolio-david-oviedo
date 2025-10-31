@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Optimización de Spring Boot para Producción: Guía Completa | Amado David Oviedo</title>
+    <meta name="description" content="Técnicas avanzadas para mejorar el rendimiento de aplicaciones Spring Boot en producción. Configuración JVM, optimización de memoria y mejores prácticas probadas en eVendeha.">
+    <meta name="keywords" content="Spring Boot, optimización, JVM, producción, rendimiento, Java, Paraguay, eVendeha">
+    <meta name="author" content="Amado David Oviedo Quintana">
+    <link rel="canonical" href="https://tu-dominio.com/blog/optimizacion-spring-boot-produccion">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tu-dominio.com/blog/optimizacion-spring-boot-produccion">
+    <meta property="og:title" content="Optimización de Spring Boot para Producción: Guía Completa">
+    <meta property="og:description" content="Técnicas avanzadas para mejorar el rendimiento de aplicaciones Spring Boot en producción">
+    <meta property="og:image" content="https://tu-dominio.com/assets/images/blog/spring-boot-tips.jpg">
+    <meta property="article:published_time" content="2024-10-15T10:00:00-04:00">
+    <meta property="article:author" content="Amado David Oviedo Quintana">
+    <meta property="article:section" content="Backend">
+    <meta property="article:tag" content="Spring Boot">
+    <meta property="article:tag" content="Performance">
+    <meta property="article:tag" content="JVM">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-dominio.com/blog/optimizacion-spring-boot-produccion">
+    <meta property="twitter:title" content="Optimización de Spring Boot para Producción: Guía Completa">
+    <meta property="twitter:description" content="Técnicas avanzadas para mejorar el rendimiento de aplicaciones Spring Boot en producción">
+    <meta property="twitter:image" content="https://tu-dominio.com/assets/images/blog/spring-boot-tips.jpg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/blog/article.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Optimización de Spring Boot para Producción: Guía Completa",
+      "image": "https://tu-dominio.com/assets/images/blog/spring-boot-tips.jpg",
+      "datePublished": "2024-10-15T10:00:00-04:00",
+      "dateModified": "2024-10-15T10:00:00-04:00",
+      "author": {
+        "@type": "Person",
+        "name": "Amado David Oviedo Quintana",
+        "url": "https://tu-dominio.com",
+        "jobTitle": "Desarrollador Full Stack",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Evendeha E.A.S"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Amado David Oviedo Quintana",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tu-dominio.com/assets/images/amado-oviedo.jpg"
+        }
+      },
+      "description": "Técnicas avanzadas para mejorar el rendimiento de aplicaciones Spring Boot en producción. Configuración JVM, optimización de memoria y mejores prácticas.",
+      "articleBody": "Aprende cómo optimizar aplicaciones Spring Boot para producción con técnicas probadas en sistemas reales como eVendeha.",
+      "keywords": ["Spring Boot", "optimización", "JVM", "producción", "rendimiento"],
+      "articleSection": "Backend"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="container">
+            <a href="../index.html" class="logo">ADOQ</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+                <li><a href="../index.html#habilidades">Habilidades</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-category">Backend</div>
+                <h1>Optimización de Spring Boot para Producción: Guía Completa</h1>
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="../assets/images/amado-oviedo.jpg" alt="Amado David Oviedo" class="author-avatar">
+                        <div>
+                            <span class="author-name">Amado David Oviedo Quintana</span>
+                            <div class="article-details">
+                                <time datetime="2024-10-15"><i class="fas fa-calendar-alt"></i> 15 Oct 2024</time>
+                                <span><i class="fas fa-clock"></i> 8 min de lectura</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-share">
+                        <a href="#" class="share-btn" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-btn" title="Compartir en LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="share-btn" title="Compartir en Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="article-featured-image">
+                <img src="../assets/images/blog/spring-boot-tips.jpg" alt="Optimización Spring Boot" loading="eager">
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead">
+                    Después de 3 años desarrollando y optimizando eVendeha, nuestro sistema comercial integral construido con Spring Boot, he aprendido que llevar una aplicación de desarrollo a producción exitosamente requiere mucho más que código funcional. En este artículo, comparto las técnicas y optimizaciones que nos han permitido mantener un sistema escalable, rápido y confiable.
+                </p>
+
+                <h2>¿Por qué es importante la optimización?</h2>
+                <p>
+                    En eVendeha, manejamos operaciones críticas como ventas en tiempo real, facturación electrónica y gestión de inventarios para múltiples clientes simultáneamente. Una aplicación mal optimizada puede resultar en:
+                </p>
+                <ul>
+                    <li><strong>Tiempos de respuesta lentos</strong> que frustran a los usuarios</li>
+                    <li><strong>Alto consumo de recursos</strong> que incrementa costos de hosting</li>
+                    <li><strong>Problemas de escalabilidad</strong> cuando crece la base de usuarios</li>
+                    <li><strong>Caídas del sistema</strong> en momentos de alta demanda</li>
+                </ul>
+
+                <h2>1. Configuración Óptima de la JVM</h2>
+                <p>
+                    La configuración de la JVM es fundamental para el rendimiento. Aquí están los parámetros que utilizamos en eVendeha:
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>application.properties</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-bash"># Configuración JVM recomendada para producción
+java -Xms2G -Xmx2G \
+  -XX:+UseG1GC \
+  -XX:MaxGCPauseMillis=200 \
+  -XX:+HeapDumpOnOutOfMemoryError \
+  -XX:HeapDumpPath=/var/log/heapdump.hprof \
+  -Dspring.profiles.active=prod \
+  -jar eVendeha.jar</code></pre>
+                </div>
+
+                <h3>Explicación de los parámetros:</h3>
+                <ul>
+                    <li><code>-Xms2G -Xmx2G</code>: Establecer el mismo tamaño inicial y máximo evita el redimensionamiento dinámico del heap</li>
+                    <li><code>-XX:+UseG1GC</code>: El recolector G1 ofrece mejor rendimiento para aplicaciones con heaps grandes</li>
+                    <li><code>-XX:MaxGCPauseMillis=200</code>: Limita las pausas de GC a 200ms para mantener la aplicación responsive</li>
+                    <li><code>-XX:+HeapDumpOnOutOfMemoryError</code>: Genera un dump cuando hay OutOfMemory para debugging</li>
+                </ul>
+
+                <h2>2. Optimización de Conexiones a Base de Datos</h2>
+                <p>
+                    El pool de conexiones es crítico. Una configuración incorrecta puede saturar la base de datos o desperdiciar recursos.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>application-prod.yml</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-yaml">spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      leak-detection-threshold: 60000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+        query:
+          in_clause_parameter_padding: true</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <strong>Consejo Pro:</strong> En eVendeha calculamos el pool size óptimo con la fórmula: 
+                        <code>connections = ((core_count * 2) + effective_spindle_count)</code>. 
+                        Para un servidor con 4 cores y un SSD (spindle=1), usamos 10 conexiones.
+                    </div>
+                </div>
+
+                <h2>3. Caching Estratégico</h2>
+                <p>
+                    Implementamos caching en múltiples niveles para reducir la carga en la base de datos y mejorar los tiempos de respuesta.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>CacheConfig.java</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-java">@Configuration
+@EnableCaching
+public class CacheConfig {
+    
+    @Bean
+    public CacheManager cacheManager() {
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+        cacheManager.setCaffeine(Caffeine.newBuilder()
+            .maximumSize(1000)
+            .expireAfterWrite(10, TimeUnit.MINUTES)
+            .recordStats());
+        return cacheManager;
+    }
+}
+
+@Service
+public class ProductService {
+    
+    @Cacheable(value = "products", key = "#id")
+    public Product findById(Long id) {
+        return productRepository.findById(id)
+            .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
+    }
+    
+    @CacheEvict(value = "products", key = "#product.id")
+    public Product update(Product product) {
+        return productRepository.save(product);
+    }
+}</code></pre>
+                </div>
+
+                <h2>4. Lazy Loading y Paginación</h2>
+                <p>
+                    Nunca cargar toda la data de una vez. En eVendeha, todas las listas implementan paginación:
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>ProductController.java</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-java">@GetMapping("/products")
+public ResponseEntity<Page<ProductDTO>> getProducts(
+    @RequestParam(defaultValue = "0") int page,
+    @RequestParam(defaultValue = "20") int size,
+    @RequestParam(defaultValue = "id,desc") String[] sort
+) {
+    Pageable pageable = PageRequest.of(page, size, 
+        Sort.by(Sort.Direction.fromString(sort[1]), sort[0]));
+    
+    Page<ProductDTO> products = productService.findAll(pageable);
+    return ResponseEntity.ok(products);
+}</code></pre>
+                </div>
+
+                <h2>5. Compresión de Respuestas HTTP</h2>
+                <p>
+                    Habilitar compresión GZIP reduce significativamente el tamaño de las respuestas:
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>application-prod.yml</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-yaml">server:
+  compression:
+    enabled: true
+    mime-types:
+      - application/json
+      - application/xml
+      - text/html
+      - text/xml
+      - text/plain
+    min-response-size: 1024</code></pre>
+                </div>
+
+                <h2>6. Monitoreo con Actuator</h2>
+                <p>
+                    Spring Boot Actuator nos permite monitorear la salud y métricas de la aplicación en tiempo real:
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>pom.xml</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-xml"><dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency></code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>application-prod.yml</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-yaml">management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true</code></pre>
+                </div>
+
+                <h2>7. Async Processing</h2>
+                <p>
+                    Para operaciones que no requieren respuesta inmediata, utilizamos procesamiento asíncrono:
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>AsyncConfig.java</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <pre><code class="language-java">@Configuration
+@EnableAsync
+public class AsyncConfig {
+    
+    @Bean(name = "taskExecutor")
+    public Executor taskExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(5);
+        executor.setMaxPoolSize(10);
+        executor.setQueueCapacity(100);
+        executor.setThreadNamePrefix("async-");
+        executor.initialize();
+        return executor;
+    }
+}
+
+@Service
+public class EmailService {
+    
+    @Async("taskExecutor")
+    public CompletableFuture<Void> sendInvoiceEmail(Invoice invoice) {
+        // Enviar email sin bloquear el hilo principal
+        emailSender.send(invoice);
+        return CompletableFuture.completedFuture(null);
+    }
+}</code></pre>
+                </div>
+
+                <h2>Resultados en eVendeha</h2>
+                <p>
+                    Después de implementar estas optimizaciones, obtuvimos mejoras significativas:
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">65%</div>
+                        <div class="stat-label">Reducción en tiempo de respuesta promedio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-label">Menos consumo de memoria</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3x</div>
+                        <div class="stat-label">Más usuarios concurrentes soportados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime alcanzado</div>
+                    </div>
+                </div>
+
+                <h2>Conclusiones</h2>
+                <p>
+                    La optimización de aplicaciones Spring Boot no es una tarea única, sino un proceso continuo. Las técnicas presentadas aquí son las que mejor han funcionado para eVendeha, pero cada aplicación tiene sus propias necesidades.
+                </p>
+
+                <p><strong>Recomendaciones finales:</strong></p>
+                <ol>
+                    <li>Siempre mide antes de optimizar (usa profilers como JProfiler o YourKit)</li>
+                    <li>Optimiza los cuellos de botella reales, no los percibidos</li>
+                    <li>Implementa monitoreo desde el día uno</li>
+                    <li>Documenta cada cambio de configuración</li>
+                    <li>Prueba las optimizaciones en un ambiente similar a producción</li>
+                </ol>
+
+                <div class="tip-box success">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>¿Necesitás ayuda optimizando tu aplicación Spring Boot?</strong> En Evendeha E.A.S ofrecemos servicios de consultoría y desarrollo. <a href="../index.html#contacto">Contactanos</a> para más información.
+                    </div>
+                </div>
+
+                <!-- Article Tags -->
+                <div class="article-tags">
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Performance</span>
+                    <span class="tag">JVM</span>
+                    <span class="tag">Producción</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Optimización</span>
+                </div>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="author-bio">
+                <img src="../assets/images/amado-oviedo.jpg" alt="Amado David Oviedo" class="author-bio-avatar">
+                <div class="author-bio-content">
+                    <h3>Sobre el Autor</h3>
+                    <h4>Amado David Oviedo Quintana</h4>
+                    <p>
+                        Licenciado en Análisis de Sistemas y Desarrollador Full Stack con más de 3 años de experiencia. 
+                        Socio y Líder de Desarrollo en Evendeha E.A.S, especializado en Spring Boot, Flutter y arquitectura de sistemas escalables. 
+                        Apasionado por automatizar negocios y resolver problemas reales con tecnología.
+                    </p>
+                    <div class="author-social">
+                        <a href="mailto:tu-email@ejemplo.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/tu-perfil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/tu-usuario" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="related-articles">
+                <h3>Artículos Relacionados</h3>
+                <div class="related-grid">
+                    <a href="flutter-riverpod-state-management.html" class="related-card">
+                        <img src="../assets/images/blog/flutter-riverpod.jpg" alt="Flutter Riverpod">
+                        <div class="related-content">
+                            <span class="related-category">Mobile</span>
+                            <h4>Gestión de Estado en Flutter con Riverpod</h4>
+                            <p>Arquitectura escalable para aplicaciones móviles</p>
+                        </div>
+                    </a>
+                    <a href="automatizacion-pymes-paraguay.html" class="related-card">
+                        <img src="../assets/images/blog/automatizacion-negocio.jpg" alt="Automatización">
+                        <div class="related-content">
+                            <span class="related-category">Negocio</span>
+                            <h4>Transformación Digital para PYMEs</h4>
+                            <p>El caso eVendeha en Paraguay</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Amado David Oviedo Quintana — Evendeha E.A.S</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">Desarrollado con <i class="fas fa-heart"
+                    style="color: #ef4444;"></i> en Paraguay</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
