@@ -1,0 +1,22 @@
+{
+  "name": "Amado David Oviedo Quintana - Full Stack Developer",
+  "short_name": "ADOQ Portfolio",
+  "description": "Portafolio profesional de Amado David Oviedo Quintana - Desarrollador Full Stack especializado en Spring Boot, Flutter y soluciones cloud",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
