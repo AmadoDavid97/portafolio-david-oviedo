@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Página Principal -->
+    <url>
+        <loc>https://amadodavid97.github.io/portafolio-david-oviedo/</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Blog Index -->
+    <url>
+        <loc>https://amadodavid97.github.io/portafolio-david-oviedo/blog/</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Artículo: Optimización Spring Boot -->
+    <url>
+        <loc>https://amadodavid97.github.io/portafolio-david-oviedo/blog/optimizacion-spring-boot-produccion.html</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://amadodavid97.github.io/portafolio-david-oviedo/assets/images/blog/spring-boot-tips.jpg</image:loc>
+            <image:title>Optimización de Spring Boot para Producción</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Artículo: Flutter Riverpod -->
+    <url>
+        <loc>https://amadodavid97.github.io/portafolio-david-oviedo/blog/flutter-riverpod-state-management.html</loc>
+        <lastmod>2024-10-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://amadodavid97.github.io/portafolio-david-oviedo/assets/images/blog/flutter-riverpod.jpg</image:loc>
+            <image:title>Gestión de Estado en Flutter con Riverpod</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Artículo: Transformación Digital PYMEs -->
+    <url>
+        <loc>https://amadodavid97.github.io/portafolio-david-oviedo/blog/automatizacion-pymes-paraguay.html</loc>
+        <lastmod>2024-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://amadodavid97.github.io/portafolio-david-oviedo/assets/images/blog/automatizacion-negocio.jpg</image:loc>
+            <image:title>Transformación Digital para PYMEs en Paraguay</image:title>
+        </image:image>
+    </url>
+    
+</urlset>

@@ -1,0 +1,13 @@
+# robots.txt para portafolio-david-oviedo
+# Permitir que todos los motores de búsqueda indexen el sitio
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://amadodavid97.github.io/portafolio-david-oviedo/sitemap.xml
+
+# Archivos que no necesitan ser indexados
+Disallow: /assets/
+Disallow: *.json
+Disallow: *.md
